@@ -1,0 +1,20 @@
+syntax = "proto3";
+package stockprice;
+option java_multiple_files=true;
+option java_package="de.stockbose";
+option java_outer_classname="StockPriceProto";
+
+service StockPriceService {
+
+  // Unary RPC :: to fetch current stock price
+  rpc getStockPrice(StockRequest) returns (StockResponse);
+}
+
+message StockRequest {
+  string symbol=1;
+}
+
+message StockResponse {
+  string symbol=1;
+  string price=2;
+}
